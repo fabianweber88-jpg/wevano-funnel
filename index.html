@@ -23,7 +23,14 @@
       inklusive aller Quiz-Antworten (step1–step7), damit diese beim Lead
       mitgespeichert werden.
     -->
-    <form name="wevano-lead" netlify netlify-honeypot="bot-field" hidden>
+    <form
+      name="wevano-lead"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      hidden
+    >
+      <input type="hidden" name="form-name" value="wevano-lead" />
+      <input type="text" name="bot-field" />
       <input type="text" name="name" />
       <input type="email" name="email" />
       <input type="tel" name="phone" />

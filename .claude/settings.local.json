@@ -8,7 +8,8 @@
       "Bash(gh repo *)",
       "Bash(npm run *)",
       "Bash(git commit -m 'Fix Netlify Forms submit: URLSearchParams, honeypot field, response check *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(git commit -m 'Fix Netlify form detection: use data-netlify=true, add form-name and bot-field inputs *)"
     ]
   }
 }
