@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Kostenloser Website-Entwurf von Wevano – in 60 Sekunden anfragen." />
+    <title>Wevano – Kostenloser Website-Entwurf</title>
+
+    <!-- Schriftarten: Inter (Text) + Playfair Display (Headlines) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!--
+      Verstecktes statisches Formular für Netlify Forms.
+      Da dies eine React-SPA ist, kann Netlify das Formular beim Build nur
+      erkennen, wenn es als reines HTML in der index.html vorhanden ist.
+      Es MUSS exakt dieselben Feldnamen enthalten wie das React-Formular –
+      inklusive aller Quiz-Antworten (step1–step7), damit diese beim Lead
+      mitgespeichert werden.
+    -->
+    <form name="wevano-lead" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <input type="text" name="company" />
+      <input type="text" name="consent" />
+      <input type="text" name="step1_unternehmensart" />
+      <input type="text" name="step2_website_status" />
+      <input type="text" name="step3_ziel" />
+      <input type="text" name="step4_umfang" />
+      <input type="text" name="step5_budget" />
+      <input type="text" name="step6_zeitpunkt" />
+      <input type="text" name="step7_entscheider" />
+    </form>
+
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

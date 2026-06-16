@@ -1,0 +1,10 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# SPA-Fallback: alle Routen auf index.html umleiten.
+# Netlify-Forms-POSTs werden davor abgefangen und funktionieren weiterhin.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
