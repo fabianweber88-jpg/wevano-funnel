@@ -1,16 +1,5 @@
 import { useState } from 'react'
 
-// Hilfsfunktion: kodiert ein Objekt als application/x-www-form-urlencoded,
-// wie es Netlify Forms für SPA-Submissions erwartet.
-function encode(data) {
-  return Object.keys(data)
-    .map(
-      (key) =>
-        encodeURIComponent(key) + '=' + encodeURIComponent(data[key] ?? ''),
-    )
-    .join('&')
-}
-
 // Schritt 8: Kontakt & Angebot.
 // Sendet alle Kontaktdaten + sämtliche Quiz-Antworten (answers) an Netlify.
 export default function ContactStep({ answers, onSubmitted }) {
@@ -44,19 +33,33 @@ export default function ContactStep({ answers, onSubmitted }) {
 
     setSubmitting(true)
     try {
-      // Quiz-Antworten + Kontaktdaten zusammenführen und an Netlify senden.
+      // Alle Felder zusammenführen. Wichtig:
+      // - 'form-name' MUSS exakt dem name des versteckten Formulars in
+      //   index.html entsprechen ('wevano-lead'), sonst ordnet Netlify die
+      //   Submission keinem Formular zu und alle Felder bleiben leer.
+      // - 'bot-field' (Honeypot) wird leer mitgeschickt = "kein Bot".
+      // - Alle übrigen Keys (step1_… bis step7_…, name, email, phone,
+      //   company, consent) müssen exakt den hidden inputs in index.html
+      //   entsprechen, damit Netlify sie speichert.
       const payload = {
         'form-name': 'wevano-lead',
+        'bot-field': '',
         ...answers,
         ...form,
         consent: 'Ja',
       }
 
-      await fetch('/', {
+      // Netlify Forms erwartet application/x-www-form-urlencoded – KEIN JSON.
+      // URLSearchParams erzeugt genau dieses Format und kodiert sauber.
+      const response = await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode(payload),
+        body: new URLSearchParams(payload).toString(),
       })
+
+      if (!response.ok) {
+        throw new Error(`Netlify antwortete mit Status ${response.status}`)
+      }
 
       onSubmitted()
     } catch (err) {
