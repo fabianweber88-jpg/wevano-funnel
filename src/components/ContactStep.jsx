@@ -37,13 +37,11 @@ export default function ContactStep({ answers, onSubmitted }) {
       // - 'form-name' MUSS exakt dem name des versteckten Formulars in
       //   index.html entsprechen ('wevano-lead'), sonst ordnet Netlify die
       //   Submission keinem Formular zu und alle Felder bleiben leer.
-      // - 'bot-field' (Honeypot) wird leer mitgeschickt = "kein Bot".
       // - Alle übrigen Keys (step1_… bis step7_…, name, email, phone,
       //   company, consent) müssen exakt den hidden inputs in index.html
       //   entsprechen, damit Netlify sie speichert.
       const payload = {
         'form-name': 'wevano-lead',
-        'bot-field': '',
         ...answers,
         ...form,
         consent: 'Ja',
@@ -90,16 +88,10 @@ export default function ContactStep({ answers, onSubmitted }) {
         name="wevano-lead"
         method="POST"
         data-netlify="true"
-        netlify-honeypot="bot-field"
         onSubmit={handleSubmit}
         className="flex flex-col gap-4"
       >
         <input type="hidden" name="form-name" value="wevano-lead" />
-        <p hidden>
-          <label>
-            Nicht ausfüllen: <input name="bot-field" />
-          </label>
-        </p>
 
         {/* Quiz-Antworten als versteckte Felder mitschicken */}
         {Object.entries(answers).map(([key, value]) => (
