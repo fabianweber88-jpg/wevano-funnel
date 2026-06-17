@@ -13,7 +13,8 @@
       "Bash(git commit -m 'Remove Netlify honeypot to stop false-positive spam filtering *)",
       "Bash(git commit -m 'Add method=POST to hidden Netlify form *)",
       "Bash(node *)",
-      "Bash(xargs echo \"  Anzahl Font-Dateien:\")"
+      "Bash(xargs echo \"  Anzahl Font-Dateien:\")",
+      "PowerShell(git push *)"
     ]
   }
 }

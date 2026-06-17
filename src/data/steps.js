@@ -43,7 +43,7 @@ export const quizSteps = [
   {
     key: 'step5_budget',
     question: 'Mit welchem Budget rechnen Sie ungefähr?',
-    options: ['Bis €600', '€600–900', '€900–1.400', 'Noch unklar'],
+    options: ['Bis €800', '€800 – €1.500', '€1.500 – €3.000', 'Mehr als €3.000'],
   },
   {
     key: 'step6_zeitpunkt',
