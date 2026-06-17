@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 // Schritt 8: Kontakt & Angebot.
 // Sendet alle Kontaktdaten + sämtliche Quiz-Antworten (answers) an Netlify.
@@ -146,12 +147,13 @@ export default function ContactStep({ answers, onSubmitted }) {
           <span>
             Ich stimme zu, dass Wevano mich bezüglich meiner Anfrage per E-Mail
             und Telefon kontaktiert. Details in der{' '}
-            <a
-              href="/datenschutz"
+            <Link
+              to="/datenschutz"
+              target="_blank"
               className="font-medium text-accent underline underline-offset-2"
             >
               Datenschutzerklärung
-            </a>
+            </Link>
             .
           </span>
         </label>

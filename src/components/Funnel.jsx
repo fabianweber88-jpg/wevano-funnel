@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { quizSteps, TOTAL_STEPS } from '../data/steps'
 import ProgressBar from './ProgressBar'
@@ -122,6 +123,16 @@ export default function Funnel() {
           </AnimatePresence>
         </div>
       </main>
+
+      {/* Dezenter Footer mit Rechts-Links */}
+      <footer className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 pt-6 text-xs text-gray-400">
+        <Link to="/impressum" className="transition-colors hover:text-ink">
+          Impressum
+        </Link>
+        <Link to="/datenschutz" className="transition-colors hover:text-ink">
+          Datenschutzerklärung
+        </Link>
+      </footer>
     </div>
   )
 }
