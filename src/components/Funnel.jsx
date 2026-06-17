@@ -53,7 +53,7 @@ export default function Funnel() {
   }
 
   return (
-    <div className="mx-auto flex min-h-screen w-full max-w-2xl flex-col px-5 py-6 sm:px-8 sm:py-10">
+    <div className="mx-auto flex min-h-screen w-full max-w-2xl flex-col overflow-x-clip px-5 py-6 sm:px-8 sm:py-10">
       {/* Kopfbereich: Zurück-Pfeil + Logo + Fortschrittsbalken */}
       <header className="mb-8 sm:mb-12">
         <div className="mb-6 flex items-center justify-between">
@@ -63,20 +63,31 @@ export default function Funnel() {
               type="button"
               onClick={goBack}
               aria-label="Zurück"
-              className="flex h-10 w-10 items-center justify-center rounded-full text-gray-500 transition-colors hover:bg-gray-100 hover:text-ink"
+              className="-ml-1 flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-gray-50 text-ink shadow-sm transition-colors hover:border-gray-300 hover:bg-gray-100 active:bg-gray-200"
             >
-              ←
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="h-6 w-6"
+                aria-hidden="true"
+              >
+                <path d="M15 18l-6-6 6-6" />
+              </svg>
             </button>
           ) : (
-            <span className="h-10 w-10" /> // Platzhalter für gleichbleibendes Layout
+            <span className="h-11 w-11" /> // Platzhalter für gleichbleibendes Layout
           )}
 
           {/* Markenname */}
-          <span className="font-display text-xl font-semibold tracking-tight text-ink">
+          <span className="font-display text-2xl font-semibold tracking-tight text-ink">
             Wevano
           </span>
 
-          <span className="h-10 w-10" /> {/* Symmetrie-Platzhalter rechts */}
+          <span className="h-11 w-11" /> {/* Symmetrie-Platzhalter rechts */}
         </div>
 
         {/* Fortschrittsbalken – ab Frage 1, nicht auf der Danke-Seite */}
@@ -132,6 +143,14 @@ export default function Funnel() {
         <Link to="/datenschutz" className="transition-colors hover:text-ink">
           Datenschutzerklärung
         </Link>
+        <a
+          href="https://www.wevano.at"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="transition-colors hover:text-ink"
+        >
+          www.wevano.at
+        </a>
       </footer>
     </div>
   )

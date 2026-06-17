@@ -17,7 +17,7 @@ export default function LegalLayout({ title, children }) {
           <Link
             to="/"
             aria-label="Zurück zur Startseite"
-            className="flex h-10 items-center gap-2 rounded-full px-3 text-sm text-gray-500 transition-colors hover:bg-gray-100 hover:text-ink"
+            className="-ml-2 flex h-11 items-center gap-2 rounded-full px-3 text-sm text-gray-500 transition-colors hover:bg-gray-100 hover:text-ink"
           >
             <span aria-hidden="true">←</span> Zurück
           </Link>
@@ -26,7 +26,7 @@ export default function LegalLayout({ title, children }) {
             Wevano
           </span>
 
-          <span className="h-10 w-16" /> {/* Symmetrie-Platzhalter */}
+          <span className="h-11 w-16" /> {/* Symmetrie-Platzhalter */}
         </div>
       </header>
 

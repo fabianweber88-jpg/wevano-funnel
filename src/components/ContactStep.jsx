@@ -8,7 +8,8 @@ export default function ContactStep({ answers, onSubmitted }) {
     name: '',
     email: '',
     phone: '',
-    company: '',
+    branche: '',
+    company: '', // optional
   })
   const [consent, setConsent] = useState(false) // NICHT vorausgewählt
   const [error, setError] = useState('')
@@ -22,9 +23,9 @@ export default function ContactStep({ answers, onSubmitted }) {
     e.preventDefault()
     setError('')
 
-    // Validierung: alle Felder Pflicht
-    if (!form.name || !form.email || !form.phone || !form.company) {
-      setError('Bitte füllen Sie alle Felder aus.')
+    // Validierung: Pflichtfelder (company/Firmenname ist optional)
+    if (!form.name || !form.email || !form.phone || !form.branche) {
+      setError('Bitte füllen Sie alle Pflichtfelder aus.')
       return
     }
     if (!consent) {
@@ -39,8 +40,8 @@ export default function ContactStep({ answers, onSubmitted }) {
       //   index.html entsprechen ('wevano-lead'), sonst ordnet Netlify die
       //   Submission keinem Formular zu und alle Felder bleiben leer.
       // - Alle übrigen Keys (step1_… bis step7_…, name, email, phone,
-      //   company, consent) müssen exakt den hidden inputs in index.html
-      //   entsprechen, damit Netlify sie speichert.
+      //   branche, company, consent) müssen exakt den hidden inputs in
+      //   index.html entsprechen, damit Netlify sie speichert.
       const payload = {
         'form-name': 'wevano-lead',
         ...answers,
@@ -106,6 +107,8 @@ export default function ContactStep({ answers, onSubmitted }) {
           placeholder="Name"
           value={form.name}
           onChange={handleChange}
+          autoComplete="name"
+          autoCapitalize="words"
           required
         />
         <input
@@ -115,6 +118,11 @@ export default function ContactStep({ answers, onSubmitted }) {
           placeholder="E-Mail"
           value={form.email}
           onChange={handleChange}
+          autoComplete="email"
+          inputMode="email"
+          autoCapitalize="off"
+          autoCorrect="off"
+          spellCheck={false}
           required
         />
         <input
@@ -124,16 +132,36 @@ export default function ContactStep({ answers, onSubmitted }) {
           placeholder="Telefon"
           value={form.phone}
           onChange={handleChange}
+          autoComplete="tel"
+          inputMode="tel"
           required
         />
+        {/* Pflichtfeld: Branche/Art des Unternehmens – nötig für den Entwurf */}
+        <div className="flex flex-col gap-2">
+          <label htmlFor="branche" className="text-base font-medium text-ink">
+            Was für ein Unternehmen haben Sie?
+          </label>
+          <input
+            id="branche"
+            className={inputClass}
+            type="text"
+            name="branche"
+            placeholder="z.B. Friseur, Café, Tischlerei"
+            value={form.branche}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        {/* Optional: Firmenname */}
         <input
           className={inputClass}
           type="text"
           name="company"
-          placeholder="Unternehmensname"
+          placeholder="Firmenname (optional)"
           value={form.company}
           onChange={handleChange}
-          required
+          autoComplete="organization"
         />
 
         {/* Aktive, NICHT vorausgewählte Zustimmungs-Checkbox */}

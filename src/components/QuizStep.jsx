@@ -8,7 +8,7 @@ export default function QuizStep({ step, selected, onSelect, intro }) {
       {/* Hook nur auf dem ersten Screen – dominante Haupt-Headline */}
       {intro && (
         <div className="mb-8">
-          <h1 className="mb-3 font-display text-4xl font-semibold leading-tight text-ink sm:text-5xl md:text-6xl">
+          <h1 className="mb-3 font-display text-3xl font-semibold leading-tight text-ink sm:text-5xl md:text-6xl">
             Sehen Sie kostenlos, wie Ihre neue Website aussehen könnte.
           </h1>
           <p className="text-base text-gray-600 sm:text-lg">
@@ -49,7 +49,7 @@ export default function QuizStep({ step, selected, onSelect, intro }) {
                   : 'border-gray-200 bg-white text-ink hover:border-accent hover:bg-accent-soft',
               ].join(' ')}
             >
-              <span>{option}</span>
+              <span className="min-w-0 break-words">{option}</span>
               {/* Pfeil-Indikator rechts */}
               <span
                 className={[

@@ -17,8 +17,19 @@ export default function ThankYou() {
       <h2 className="mb-4 font-display text-3xl font-semibold leading-tight text-ink sm:text-4xl md:text-5xl">
         Vielen Dank!
       </h2>
+      <p className="mb-6 max-w-md text-lg text-gray-600">
+        Wir melden uns innerhalb von 48 Stunden bei Ihnen.
+      </p>
       <p className="mb-10 max-w-md text-lg text-gray-600">
-        Wir melden uns innerhalb von 24 Stunden bei Ihnen.
+        Mehr über uns erfahren Sie auf{' '}
+        <a
+          href="https://www.wevano.at"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-medium text-accent underline underline-offset-2 transition-colors hover:text-accent-hover"
+        >
+          www.wevano.at
+        </a>
       </p>
 
       {/* Platzhalter-Bereich für die spätere Terminbuchung */}
