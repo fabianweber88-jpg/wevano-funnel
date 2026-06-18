@@ -38,7 +38,7 @@ export const quizSteps = [
   {
     key: 'step4_umfang',
     question: 'Wie umfangreich soll Ihre Website sein?',
-    options: ['One-Pager', '3–5 Seiten', '6+ Seiten', 'Online-Shop'],
+    options: ['Eine Seite', '3–5 Seiten', '6+ Seiten', 'Online-Shop'],
   },
   {
     key: 'step5_budget',

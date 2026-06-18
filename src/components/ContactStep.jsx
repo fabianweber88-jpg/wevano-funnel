@@ -10,6 +10,7 @@ export default function ContactStep({ answers, onSubmitted }) {
     phone: '',
     branche: '',
     company: '', // optional
+    bestehende_website: '', // optional
   })
   const [consent, setConsent] = useState(false) // NICHT vorausgewählt
   const [error, setError] = useState('')
@@ -163,6 +164,30 @@ export default function ContactStep({ answers, onSubmitted }) {
           onChange={handleChange}
           autoComplete="organization"
         />
+
+        {/* Optional: bestehende Website */}
+        <div className="flex flex-col gap-2">
+          <label
+            htmlFor="bestehende_website"
+            className="text-base font-medium text-ink"
+          >
+            Haben Sie bereits eine Website? Link hier eingeben (optional)
+          </label>
+          <input
+            id="bestehende_website"
+            className={inputClass}
+            type="text"
+            name="bestehende_website"
+            placeholder="www.ihre-website.at"
+            value={form.bestehende_website}
+            onChange={handleChange}
+            autoComplete="url"
+            inputMode="url"
+            autoCapitalize="off"
+            autoCorrect="off"
+            spellCheck={false}
+          />
+        </div>
 
         {/* Aktive, NICHT vorausgewählte Zustimmungs-Checkbox */}
         <label className="mt-2 flex cursor-pointer items-start gap-3 text-sm text-gray-600">
